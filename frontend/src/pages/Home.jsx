@@ -35,7 +35,11 @@ function Home() {
         e.preventDefault();
         api.post("/api/notes/", {content, title})
         .then((res) => {
-            if (res.status === 201) alert("Note created!")
+            if (res.status === 201) { 
+                alert("Note created!") 
+                setTitle("");
+                setContent("");
+            } 
             else alert("Failed to make note")
             getNotes();
         })
